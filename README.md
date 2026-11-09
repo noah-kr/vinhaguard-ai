@@ -8,6 +8,33 @@ explain when automatic payouts would be activated.
 The project was built for Nova SBE's Advanced Topics in Machine Learning final
 project. It is an academic prototype, not a licensed insurance product.
 
+> **About this copy:** VinhaGuard AI was a team project of four students. This
+> repository is a copy of the original team repository,
+> [Schm1tzk4t3r/Advanced_ML](https://github.com/Schm1tzk4t3r/Advanced_ML), with
+> the complete commit history, so every team member's commits keep their
+> authorship.
+
+### My contribution (Noah Kreyenkamp)
+
+I was responsible for the machine-learning risk model and the premium
+calculation:
+
+- **Risk model** (`model/train.py`): climate-trigger classifier with a Logistic
+  Regression baseline and a calibrated Random Forest; chronological holdout
+  (train 1995–2019, test 2020–2024), GroupKFold by vineyard location, and the
+  evaluation artifacts in `docs/figures/` (ROC, PR, calibration, confusion
+  matrix, feature importance).
+- **Pricing backend** (`model/predict.py`): turned the model's risk scores into
+  transparent premium quotes, using historical comparable seasons instead of
+  unknown future weather.
+- **Data enrichment** (`src/data/fetch_terraclimate.py`): added TerraClimate
+  climate features to the training dataset.
+- **Integration**: aligned the heat-trigger logic and risk profiles across the
+  ML model, the pricing backend and the Streamlit dashboard pages.
+
+The data pipeline, the business case and unit economics, and the front end
+were built by my teammates.
+
 ## Why This Matters
 
 Small and medium Douro wine producers face growing exposure to heatwaves,
